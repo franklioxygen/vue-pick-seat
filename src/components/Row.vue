@@ -1,6 +1,6 @@
 <template>
     <div class="seatRow" >
-        <Seat :key="index" v-for="(seat, index) in row" :seat="seat" @toggle-availability="$emit('toggle-availability', seat.seatNum)"/>
+        <Seat :key="index" v-for="(seat, index) in row" :seat="seat" @toggle-availability="$emit('toggle-availability', seat.id)"/>
     </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     overflow: hidden;
     width: fit-content;
     position: relative;
-    top: 50%;
+    top: 50px;
     left: 50%;
     transform: translate(-50%, -50%);
 }

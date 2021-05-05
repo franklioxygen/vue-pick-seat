@@ -1,6 +1,9 @@
 <template>
 <div>
     <h1>Seat Selection</h1>
+    <h3>Username: {{ $store.state.userName }}</h3> 
+    <h3>Your Seats:</h3>
+    <h4 @click="logout">logout</h4>
     <Row :key="index" v-for="(row, index) in rows" :row="row" @toggle-availability="toggleAvailability"/>
 </div>
 
@@ -25,39 +28,36 @@ export default {
 
     },
     methods: {
-        toggleAvailability(seatNumber) {
-            this.seats[seatNumber-1].occupied = !this.seats[seatNumber-1].occupied;
+        async toggleAvailability(seatNumber) {
+            const res = await fetch(`api/seats/${seatNumber}`, {
+                method: 'PUT',
+                headers: {
+                'Content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'occupied': !this.seats[seatNumber-1].occupied
+                })
+            });
+            if(res.status === 200) this.seats[seatNumber-1].occupied = !this.seats[seatNumber-1].occupied;
+        },
+        async fetchSeats() {
+            const res = await fetch('api/seats');
+            const data = await res.json();
+            return data;
+        },
+        logout(){
+            this.$store.commit('logout');
+            this.$router.push('/login');
         },
     },
     data() {
         return {
-            seats: [
-                {seatNum: 1, occupied: false},
-                {seatNum: 2, occupied: true},
-                {seatNum: 3, occupied: true},
-                {seatNum: 4, occupied: false},
-                {seatNum: 5, occupied: false},
-                {seatNum: 6, occupied: false},
-                {seatNum: 7, occupied: true},
-                {seatNum: 8, occupied: false},
-                {seatNum: 9, occupied: false},
-                {seatNum: 10, occupied: true},
-                {seatNum: 11, occupied: false},
-                {seatNum: 12, occupied: false},
-                {seatNum: 13, occupied: false},
-                {seatNum: 14, occupied: false},
-                {seatNum: 15, occupied: true},
-                {seatNum: 16, occupied: false},
-                {seatNum: 17, occupied: false},
-                {seatNum: 18, occupied: false},
-                {seatNum: 19, occupied: true},
-                {seatNum: 20, occupied: false},
-
-            ]
-
+            seats: []
         }
     },
-
+    async created() {
+        this.seats = await this.fetchSeats();
+    },
 };
 </script>
 
@@ -65,5 +65,11 @@ export default {
 h1 {
     text-align: center;
     margin: 30px 0 80px 0;
+}
+h3 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
 }
 </style>

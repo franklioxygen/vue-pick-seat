@@ -12,6 +12,11 @@ export default {
   components: {
     Canvas,
   },
+  created() {
+      if(this.$store.state.userName === '') {
+        window.location.href = '/#/login';
+      }
+  }
 };
 </script>
 

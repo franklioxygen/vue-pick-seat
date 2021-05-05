@@ -1,5 +1,5 @@
 <template>
-  <div :class="[seat.occupied ? 'occupied' : '' , 'seat']" @click="$emit('toggle-availability', seat.seatNum)">{{ seat.seatNum }}</div>
+  <div :class="[seat.occupied ? 'occupied' : '' , 'seat']" @click="$emit('toggle-availability', seat.id)">{{ seat.id }}</div>
 </template>
 
 <script>

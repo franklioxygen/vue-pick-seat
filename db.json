@@ -1,0 +1,100 @@
+{
+  "seats": [
+    {
+      "occupied": false,
+      "id": 1
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 2
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 3
+    },
+    {
+      "username": "",
+      "id": 4,
+      "occupied": false
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 5
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 6
+    },
+    {
+      "occupied": false,
+      "id": 7
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 8
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 9
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 10
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 11
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 12
+    },
+    {
+      "occupied": false,
+      "id": 13
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 14
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 15
+    },
+    {
+      "username": "",
+      "id": 16,
+      "occupied": false
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 17
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 18
+    },
+    {
+      "username": "",
+      "occupied": false,
+      "id": 19
+    },
+    {
+      "occupied": false,
+      "id": 20
+    }
+  ]
+}
